@@ -43,6 +43,10 @@ s3_client = boto3.client(
 def home():
     return redirect(url_for('login'))
 
+@app.route('/health')
+def health_check():
+    return "OK", 200
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
